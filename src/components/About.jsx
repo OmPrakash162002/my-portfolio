@@ -13,8 +13,8 @@ const About = () => {
         
       </div>
       <div className='flex md:flex-row flex-col justify-between md:overflow-visible overflow-auto gap-15 items-center'>
-        <div >
-        <p className="text-lg leading-relaxed w-150 text-gray-300">
+        <div>
+        <p className="text-lg md:leading-relaxed md:w-150 md:h-full h-100 text-gray-300 overflow-scroll md:overflow-visible">
           I'm a dedicated Frontend Developer specializing in React.js, with a
           strong command of modern JavaScript (ES6+), JSX, and component-based
           architecture. I love building dynamic, high-performance web
