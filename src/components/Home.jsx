@@ -38,7 +38,7 @@ const Home = () => {
         
       </div>
 
-      <a href="https://docs.google.com/document/d/16cdra5dRkq6tKkKfGu_qPq4oJbtF77-TITufy1JFs_g/edit?usp=sharing" target="_blank" className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <a href="https://docs.google.com/document/d/1gip1kVniN4midfOduNCp2hPiw_nkkEKdyA53FvYS9VM/edit?usp=sharing" target="_blank" className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
         My Resume
       </a>
       <div className="flex justify-center mt-10 animate-bounce">
