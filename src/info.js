@@ -14,6 +14,7 @@ import ecommerce from "./assets/project images/e-commerce.png"
 import ggv from "./assets/Education images/ggv.png"
 import xi from "./assets/Education images/government.jpg"
 import x from "./assets/Education images/sishumandir.jpeg"
+import LMS from "./assets/project images/LMS.png"
 
 
 //skills info
@@ -68,6 +69,14 @@ export const ProjectInfo = [
         github : "",
         web : "",
         image : ecommerce
+    },
+    {
+        title : "Learning Management System (LMS)",
+        caption : "A full-stack Learning Management System (LMS) built with the MERN stack, featuring secure authentication, payment integration, and a modern responsive UI.",
+        stack : ["MERN Stack"],
+        github : "https://github.com/OmPrakash162002/LMS-PROJECT.git",
+        web: "https://lms-project-20.vercel.app/",
+        image: LMS
     }
 ]
 

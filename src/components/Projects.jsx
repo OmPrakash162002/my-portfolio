@@ -25,15 +25,15 @@ const Projects = () => {
                 ))}
               </div>
               <div className="flex flex-row gap-5">
-                <a
+                <a target="_blank"
                   className=" flex items-center font-bold justify-center w-25 h-10 rounded-3xl bg-blue-300 text-center text-blue-950"
-                  href=""
+                  href={item.web}
                 >
                   Web view
                 </a>
-                <a
+                <a target="_blank"
                   className=" flex items-center font-bold justify-center w-25 h-10 rounded-3xl bg-blue-600 text-center text-blue-200"
-                  href=""
+                  href={item.github}
                 >code</a>
               </div>
             </div>
