@@ -15,6 +15,10 @@ import ggv from "./assets/Education images/ggv.png"
 import xi from "./assets/Education images/government.jpg"
 import x from "./assets/Education images/sishumandir.jpeg"
 import LMS from "./assets/project images/LMS.png"
+import node from "./assets/icons/node.png"
+import express from "./assets/icons/express.png"
+import postman from "./assets/icons/Postman.png"
+import blog from "./assets/project images/blog.png"
 
 
 //skills info
@@ -32,6 +36,14 @@ export const skillLogos = [
             {name : "axios", logo : axios}
         ]
     },
+    {
+        title : "Backend",
+        skills : [
+            {name : "Node Js", logo : node },
+            {name : "Express Js", logo : express }
+        ]
+
+    },
 
     {
         title : "Languages",
@@ -46,7 +58,8 @@ export const skillLogos = [
         skills : [
             {name : "Git", logo : git},
             {name : "github", logo : github},
-            {name : "VS code", logo : vscode}
+            {name : "VS code", logo : vscode},
+            {name : "Postmen", logo : postman}
         ]
     }
 ]
@@ -58,18 +71,11 @@ export const ProjectInfo = [
         title : "AI CHAT APP",
         caption : "An Ai Chat Application built with Geminis API that helps answer yours quesion",
         stack : ["React JS ", "CSS3", "Axios", "Gemini API"],
-        github : "",
-        web : "",
+        github : "https://github.com/OmPrakash162002/AI-CHAT-APPLICATION.git",
+        web : "https://ai-chat-app-version-3.netlify.app/",
         image : aichatapp
     },
-    {
-        title : "E-commers website",
-        caption : "An e-commerce website that has latest collection of new fashioneble items",
-        stack : ["React JS ", "CSS3", "React Router"],
-        github : "",
-        web : "",
-        image : ecommerce
-    },
+   
     {
         title : "Learning Management System (LMS)",
         caption : "A full-stack Learning Management System (LMS) built with the MERN stack, featuring secure authentication, payment integration, and a modern responsive UI.",
@@ -77,6 +83,14 @@ export const ProjectInfo = [
         github : "https://github.com/OmPrakash162002/LMS-PROJECT.git",
         web: "https://lms-project-20.vercel.app/",
         image: LMS
+    },
+    {
+        title : "Ai Blog Application",
+        caption : "Developed a full-stack Ai Blog Application using the MERN stack, implementing responsive UI with Tailwind CSS and Framer Motion animations for an enhanced user experience.",
+        stack : ["MERN Stack"],
+        github : "https://github.com/OmPrakash162002/AI-BLOG-APPLICATION.git",
+        web : "https://ai-blog-application-gilt.vercel.app/",
+        image : blog
     }
 ]
 
