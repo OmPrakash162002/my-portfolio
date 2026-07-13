@@ -19,6 +19,7 @@ import node from "./assets/icons/node.png"
 import express from "./assets/icons/express.png"
 import postman from "./assets/icons/Postman.png"
 import blog from "./assets/project images/blog.png"
+import aicodereview from "./assets/project images/aicodereview.png"
 
 
 //skills info
@@ -68,12 +69,12 @@ export const skillLogos = [
 
 export const ProjectInfo = [
     {
-        title : "AI CHAT APP",
-        caption : "An Ai Chat Application built with Geminis API that helps answer yours quesion",
-        stack : ["React JS ", "CSS3", "Axios", "Gemini API"],
-        github : "https://github.com/OmPrakash162002/AI-CHAT-APPLICATION.git",
-        web : "https://ai-chat-app-version-3.netlify.app/",
-        image : aichatapp
+        title : "AiCodeReview – AI-Powered GitHub PR Analysis Platform",
+        caption : "Built a full-stack SaaS platform that automates GitHub pull request reviews using Google's Gemini AI, reducing manual code review time through instant, context-aware analysis",
+        stack : ["NEXT JS ", "NODE JS", "PRISMA", "Gemini API","INNGEST","POLAR","POSTGRES SQL"],
+        github : "#",
+        web : "https://aicodereview-k3lq.vercel.app/login",
+        image : aicodereview
     },
    
     {

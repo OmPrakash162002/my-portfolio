@@ -27,7 +27,7 @@ const Home = () => {
 
             <span className="text-white font-semibold">I am a</span>
              <Typewriter
-             words={['MERN Stack Developer']}
+             words={['Full Stack Developer']}
              loop={0} 
              cursor
              typeSpeed={100}
@@ -38,7 +38,7 @@ const Home = () => {
         
       </div>
 
-      <a href="https://drive.google.com/file/d/1N5HF6IWtZqazFjwcLoQlliFuWd9BKT-S/view?usp=drive_link" target="_blank" className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+      <a href="https://drive.google.com/file/d/1gKmHxbv1_FQWkUgIOsURJmuxqfs7CfcE/view?usp=sharing" target="_blank" className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
         My Resume
       </a>
       <div className="flex justify-center mt-10 animate-bounce">
