@@ -9,8 +9,6 @@ import java from "./assets/icons/java.png"
 import react from "./assets/icons/react.png"
 import tailwind from "./assets/icons/tailwind.png"
 import vscode from "./assets/icons/vs code.png"
-import aichatapp from "./assets/project images/Ai chat app.png"
-import ecommerce from "./assets/project images/e-commerce.png"
 import ggv from "./assets/Education images/ggv.png"
 import xi from "./assets/Education images/government.jpg"
 import x from "./assets/Education images/sishumandir.jpeg"
@@ -20,6 +18,11 @@ import express from "./assets/icons/express.png"
 import postman from "./assets/icons/Postman.png"
 import blog from "./assets/project images/blog.png"
 import aicodereview from "./assets/project images/aicodereview.png"
+import mongodb from "./assets/icons/mongodb.png"
+import mysql from "./assets/icons/mysql-icon.png"
+import nextjs from "./assets/icons/nextjs-icon.png"
+import postgresql from "./assets/icons/postgresql-icon.png"
+import prisma from "./assets/icons/prisma.png"
 
 
 //skills info
@@ -60,7 +63,22 @@ export const skillLogos = [
             {name : "Git", logo : git},
             {name : "github", logo : github},
             {name : "VS code", logo : vscode},
-            {name : "Postmen", logo : postman}
+            {name : "Postmen", logo : postman},
+            {name : "Prisma", logo: prisma}
+        ]
+    },
+    {
+        title : "Framework",
+        skills : [
+            {name : "Next JS",logo : nextjs}
+        ]
+    },
+    {
+        title : "Databases",
+        skills :[
+            {name : "MySql", logo: mysql},
+            {name : "Postgre Sql" , logo : postgresql},
+            {name : "Mongo DB", logo : mongodb}
         ]
     }
 ]

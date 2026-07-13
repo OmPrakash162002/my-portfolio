@@ -1,11 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ProjectInfo } from "../info";
 
-const dotPalette = ["bg-cyan-400", "bg-[#8245ec]", "bg-orange-400"];
+const dotPalette = ["bg-cyan-400", "bg-purple-500", "bg-orange-400"];
 
 const Projects = () => {
   const [visible, setVisible] = useState(false);
-  const gridRef = useRef(null);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -15,141 +15,153 @@ const Projects = () => {
           observer.disconnect();
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.05 }
     );
 
-    if (gridRef.current) observer.observe(gridRef.current);
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
     <section
       id="Projects"
-      className="relative bg-gradient-to-t from to-blue-950 w-full overflow-hidden py-16 md:py-20"
+      className="relative w-full overflow-hidden bg-slate-950 py-20 lg:py-28 text-white"
     >
       <style>{`
         @keyframes projects-drift-1 {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(-40px, -30px) scale(1.07); }
+          50% { transform: translate(-30px, -25px) scale(1.08); }
         }
         @keyframes projects-drift-2 {
           0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(35px, 40px) scale(1.05); }
+          50% { transform: translate(30px, 35px) scale(0.95); }
         }
-        .projects-glow-1 { animation: projects-drift-1 21s ease-in-out infinite; }
-        .projects-glow-2 { animation: projects-drift-2 25s ease-in-out infinite; }
-        .projects-reveal {
+        .projects-glow-1 { animation: projects-drift-1 22s ease-in-out infinite; }
+        .projects-glow-2 { animation: projects-drift-2 26s ease-in-out infinite; }
+        
+        .projects-section-reveal {
           opacity: 0;
-          transform: translateY(20px);
-          transition: opacity 0.55s ease-out, transform 0.55s ease-out;
+          transform: translateY(40px);
+          transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .projects-reveal.is-visible {
+        .projects-section-reveal.is-visible {
           opacity: 1;
           transform: translateY(0);
         }
-        @media (prefers-reduced-motion: reduce) {
-          .projects-glow-1, .projects-glow-2 { animation: none; }
-          .projects-reveal { opacity: 1; transform: none; transition: none; }
-        }
       `}</style>
 
-      {/* ambient glow, own placement/timing consistent with the rest of the site */}
-      <div
-        className="projects-glow-1 absolute top-[0%] left-[10%] size-[26rem] rounded-full bg-orange-500 opacity-[0.12] blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="projects-glow-2 absolute bottom-[-5%] right-[10%] size-[24rem] rounded-full bg-cyan-500 opacity-[0.13] blur-3xl"
-        aria-hidden="true"
-      />
+      {/* Dynamic Cosmic Background Halos */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0 select-none">
+        <div className="projects-glow-1 absolute top-[5%] left-[12%] w-[450px] h-[450px] bg-orange-600/10 rounded-full blur-[130px]" />
+        <div className="projects-glow-2 absolute bottom-[5%] right-[12%] w-[450px] h-[450px] bg-cyan-600/10 rounded-full blur-[130px]" />
+      </div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-8 md:px-16 flex flex-col gap-10 md:gap-12">
-        <div>
-          <h1 className="font-bold text-3xl sm:text-4xl text-center text-white">
+      <div
+        ref={sectionRef}
+        className={`relative max-w-5xl mx-auto px-4 sm:px-8 lg:px-12 z-10 flex flex-col gap-16 projects-section-reveal ${
+          visible ? "is-visible" : ""
+        }`}
+      >
+        {/* Section Header */}
+        <div className="text-center">
+          <h1 className="font-black text-4xl sm:text-5xl tracking-tight bg-gradient-to-r from-white via-gray-200 to-gray-500 bg-clip-text text-transparent">
             PROJECTS
           </h1>
-          <div className="w-40 h-1 bg-[#8245ec] mx-auto mt-2"></div>
-          <p className="text-center text-base sm:text-lg md:text-xl p-3 text-gray-400">
-            A few things I've built, end-to-end and shipped to production
+          <div className="w-20 h-[3px] bg-gradient-to-r from-purple-500 to-cyan-400 mx-auto mt-4 rounded-full" />
+          <p className="text-gray-400 max-w-xl mx-auto mt-5 text-sm sm:text-base md:text-lg font-medium tracking-wide">
+            A curated stack of production-ready web architectures built end-to-end.
           </p>
         </div>
 
-        <div
-          ref={gridRef}
-          className="mx-auto w-full grid gap-8 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3"
-        >
-          {ProjectInfo.map((item, i) => (
-            <div
-              key={i}
-              className={`projects-reveal ${
-                visible ? "is-visible" : ""
-              } group relative flex flex-col w-full rounded-3xl bg-white/5 backdrop-blur-sm border ${
-                i === 0
-                  ? "border-[#8245ec]/40 hover:border-[#8245ec]/70"
-                  : "border-white/10 hover:border-white/20"
-              } p-5 gap-5 transition-all duration-300 hover:-translate-y-2 hover:bg-white/[0.07]`}
-              style={{ transitionDelay: visible ? `${i * 100}ms` : "0ms" }}
-            >
-              {i === 0 && (
-                <span className="absolute -top-3 left-5 bg-gradient-to-r from-orange-500 via-[#8245ec] to-cyan-400 text-white text-[11px] font-bold uppercase tracking-wide px-3 py-1 rounded-full shadow-md">
-                  Flagship Project
-                </span>
-              )}
+        {/* Premium Sticky Cascading Card Deck Container */}
+        <div className="flex flex-col gap-16 sm:gap-24 pb-12">
+          {ProjectInfo.map((item, i) => {
+            const isFlagship = i === 0;
+            
+            return (
+              <div
+                key={i}
+                // Dynamic top offset calculation gives the deck its organic stacking layers during scroll
+                style={{ top: `${90 + i * 24}px` }}
+                className={`sticky w-full rounded-3xl bg-slate-900/60 border backdrop-blur-xl p-6 sm:p-8 flex flex-col lg:flex-row gap-6 lg:gap-8 transition-all duration-500 group origin-top shadow-[0_20px_50px_rgba(0,0,0,0.5)] ${
+                  isFlagship
+                    ? "border-purple-500/30 hover:border-purple-500/50 shadow-purple-950/10"
+                    : "border-white/10 hover:border-white/20"
+                } hover:bg-slate-900/80 hover:-translate-y-1`}
+              >
+                {/* Premium Flagship Status Ribbon */}
+                {isFlagship && (
+                  <span className="absolute -top-3 left-6 z-20 bg-gradient-to-r from-orange-500 via-purple-500 to-cyan-400 text-white text-[10px] font-black uppercase tracking-widest px-3.5 py-1 rounded-full shadow-[0_4px_12px_rgba(168,85,247,0.3)] border border-white/10">
+                    Flagship Project
+                  </span>
+                )}
 
-              <div className="overflow-hidden rounded-2xl">
-                <img
-                  className="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
-                  src={item.image}
-                  alt={item.title}
-                />
-              </div>
+                {/* Left Side: Modern Image Frame with Interactive Zoom Hover */}
+                <div className="w-full lg:w-[45%] aspect-video lg:aspect-auto lg:h-auto overflow-hidden rounded-2xl border border-white/5 shrink-0 relative">
+                  <div className="absolute inset-0 bg-slate-950/10 group-hover:opacity-0 transition-opacity duration-500 z-10 pointer-events-none" />
+                  <img
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    src={item.image}
+                    alt={item.title}
+                    loading="lazy"
+                  />
+                </div>
 
-              <div className="flex flex-col gap-4">
-                <h1 className="text-xl sm:text-2xl font-bold text-white break-words">
-                  {item.title}
-                </h1>
+                {/* Right Side: High-Density Technical Typography Context */}
+                <div className="w-full lg:w-[55%] flex flex-col justify-between gap-6">
+                  <div className="flex flex-col gap-3">
+                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white tracking-tight break-words group-hover:text-purple-300 transition-colors duration-300">
+                      {item.title}
+                    </h2>
+                    <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-medium">
+                      {item.caption}
+                    </p>
+                  </div>
 
-                <p className="text-sm sm:text-base text-gray-300">
-                  {item.caption}
-                </p>
-
-                <div className="flex flex-row flex-wrap gap-2">
-                  {item.stack.map((techstack, j) => (
-                    <span
-                      key={j}
-                      className="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-full px-2.5 py-1 text-xs font-medium text-gray-300 whitespace-nowrap"
-                    >
+                  {/* Clean Technical Badges Grid */}
+                  <div className="flex flex-wrap gap-2">
+                    {item.stack.map((techstack, j) => (
                       <span
-                        className={`size-1.5 rounded-full ${
-                          dotPalette[j % dotPalette.length]
-                        }`}
-                      ></span>
-                      {techstack}
-                    </span>
-                  ))}
+                        key={j}
+                        className="flex items-center gap-2 bg-white/[0.03] border border-white/5 rounded-xl px-3 py-1.5 text-xs font-semibold text-gray-300 transition-colors duration-300 hover:bg-white/[0.06]"
+                      >
+                        <span className={`w-1.5 h-1.5 rounded-full ${dotPalette[j % dotPalette.length]} shadow-[0_0_6px_rgba(255,255,255,0.1)]`} />
+                        {techstack}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Clean Action Navigation Row */}
+                  <div className="flex flex-wrap items-center gap-3 mt-2">
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={item.web}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-bold text-sm shadow-[0_4px_15px_rgba(124,58,237,0.2)] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_6px_20px_rgba(124,58,237,0.4)] active:scale-[0.98]"
+                    >
+                      <span>Web view</span>
+                      <svg className="w-4 h-4 transform group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
+                    
+                    <a
+                      target="_blank"
+                      rel="noreferrer"
+                      href={item.github}
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-white/[0.03] border border-white/10 text-white font-bold text-sm transition-all duration-300 hover:bg-white/[0.08] hover:border-white/20 hover:scale-[1.03] active:scale-[0.98]"
+                    >
+                      <span>Code</span>
+                      <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
 
-                <div className="flex flex-row flex-wrap gap-3 mt-1">
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={item.web}
-                    className="flex items-center font-semibold justify-center px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-500 to-blue-700 text-white shadow-md transition-all duration-300 hover:scale-105 hover:shadow-xl min-w-[110px]"
-                  >
-                    Web view
-                  </a>
-                  <a
-                    target="_blank"
-                    rel="noreferrer"
-                    href={item.github}
-                    className="flex items-center font-semibold justify-center px-5 py-2.5 rounded-full bg-white/5 border border-white/20 text-white transition-all duration-300 hover:scale-105 hover:bg-white/10 min-w-[110px]"
-                  >
-                    Code
-                  </a>
-                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
