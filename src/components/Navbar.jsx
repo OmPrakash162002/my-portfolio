@@ -14,7 +14,7 @@ const Navbar = () => {
       setIsScrolled(window.scrollY > 20);
       
       // Optional: Auto-update active tab based on what section is on screen
-      const menuItems = ["Home", "About", "Skills", "Projects", "Education", "Contact"];
+      const menuItems = ["Home", "About","Experience", "Skills", "Projects", "Education", "Contact"];
       for (const id of menuItems) {
         const section = document.getElementById(id === "Contact" ? "Contact me" : id);
         if (section) {
@@ -55,6 +55,7 @@ const Navbar = () => {
   const menuItems = [
     { id: "Home", label: "Home" },
     { id: "About", label: "About" },
+    { id: "Experience", label: "Experience" },
     { id: "Skills", label: "Skills" },
     { id: "Projects", label: "Projects" },
     { id: "Education", label: "Education" },
