@@ -147,7 +147,7 @@ const Home = () => {
             style={{ animationDelay: "320ms" }}
           >
             <a
-              href="https://drive.google.com/file/d/1SlLzpHMyWj9-H9ep2WIi4HVLHhgX2URI/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1cvW1hUiZ5UjcL9DD2AaJ1PWo6hBHzs-9/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold py-3 px-6 rounded-full shadow-md transform transition-all duration-300 hover:scale-105 hover:shadow-xl"
